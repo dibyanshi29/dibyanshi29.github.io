@@ -118,11 +118,12 @@ nav.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:
 .gallery button{all:unset;cursor:pointer;position:relative;border-radius:18px;overflow:hidden;background:#0b1430;box-shadow:var(--shadow)}
 .gallery button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 .gallery button:first-child{grid-row:span 2}
+.sgal{margin-top:20px;grid-template-columns:repeat(3,1fr);grid-auto-rows:200px}.sgal button:first-child{grid-row:auto}
 .gallery img{width:100%;height:100%;object-fit:cover;object-position:left top;display:block;transition:transform .5s ease}
 .gallery button:hover img{transform:scale(1.04)}
 .gallery span{position:absolute;left:12px;bottom:12px;background:rgba(10,18,36,.82);color:#fff;font-size:14px;font-weight:600;padding:6px 12px;border-radius:999px}
 .gnote{color:var(--muted);font-size:15px;margin:16px 0 0;max-width:70ch}
-@media (max-width:820px){.gallery{grid-template-columns:1fr 1fr;grid-auto-rows:180px}.gallery button:first-child{grid-column:span 2;grid-row:span 1}}
+@media (max-width:820px){.sgal{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:1fr 1fr;grid-auto-rows:180px}.gallery button:first-child{grid-column:span 2;grid-row:span 1}}
 .viewer{position:fixed;inset:0;z-index:50;background:rgba(6,10,20,.92);display:none;flex-direction:column}
 .viewer.open{display:flex;animation:fade .25s ease}
 @keyframes fade{from{opacity:0}to{opacity:1}}
@@ -176,6 +177,37 @@ nav.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:
 @media (max-width:820px){.contact{grid-template-columns:1fr;padding:36px 26px}}
 footer{padding:36px 0 48px;color:var(--muted);font-size:14px}
 
+
+/* chatbot */
+.cb-btn{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;align-items:center;gap:8px;background:var(--blue);color:var(--onblue);border:0;border-radius:999px;padding:13px 18px;font:inherit;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(22,82,240,.35);transition:transform .2s}
+.cb-btn:hover{transform:translateY(-2px)}
+.cb-btn svg{width:20px;height:20px;fill:currentColor}
+.cb{position:fixed;right:20px;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:41;width:min(380px,calc(100vw - 32px));height:min(560px,calc(100vh - 120px));background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:0 20px 50px rgba(15,27,45,.25);display:none;flex-direction:column;overflow:hidden}
+.cb.open{display:flex;animation:cbIn .22s ease}
+section.cb{padding:0}
+.cb-sug[hidden]{display:none}
+@keyframes cbIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.cb-h{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.cb-av{width:36px;height:36px;border-radius:50%;background:var(--blue);color:var(--onblue);display:grid;place-items:center;font-weight:700;font-family:"Bricolage Grotesque",Arial,sans-serif}
+.cb-h b{display:block;font-size:15px}.cb-h small{color:var(--muted);font-size:12.5px}
+.cb-x{margin-left:auto;background:var(--soft);border:0;width:32px;height:32px;border-radius:50%;cursor:pointer;color:var(--ink);font-size:18px;line-height:1}
+.cb-log{flex:1;overflow-y:auto;padding:14px 14px 6px;display:flex;flex-direction:column;gap:10px}
+.cb-m{max-width:86%;padding:10px 13px;border-radius:16px;font-size:14.5px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+.cb-m.bot{background:var(--soft);border-bottom-left-radius:5px;align-self:flex-start}
+.cb-m.me{background:var(--blue);color:var(--onblue);border-bottom-right-radius:5px;align-self:flex-end}
+.cb-src{font-size:11.5px;color:var(--muted);align-self:flex-start;margin-top:-6px}
+.cb-dots{display:flex;gap:4px;padding:12px 14px}.cb-dots i{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:cbB 1s infinite}.cb-dots i:nth-child(2){animation-delay:.15s}.cb-dots i:nth-child(3){animation-delay:.3s}
+@keyframes cbB{0%,100%{opacity:.3}50%{opacity:1}}
+.cb-sug{display:flex;gap:6px;flex-wrap:wrap;padding:4px 14px 10px}
+.cb-sug button{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:6px 11px;font:inherit;font-size:13px;cursor:pointer}
+.cb-sug button:hover{border-color:var(--blue);color:var(--blue)}
+.cb-f{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--line)}
+.cb-f input{flex:1;min-width:0;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);border-radius:12px;padding:10px 12px;font:inherit;font-size:15px}
+.cb-f input:focus{outline:none;border-color:var(--blue)}
+.cb-f button{background:var(--blue);color:var(--onblue);border:0;border-radius:12px;padding:0 16px;font:inherit;font-weight:600;cursor:pointer}
+.cb-f button:disabled{opacity:.5;cursor:default}
+.cb-note{font-size:11px;color:var(--muted);text-align:center;padding:0 12px 10px}
+@media (max-width:520px){.cb{right:16px}.cb-btn span{display:none}.cb-btn{padding:14px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -281,14 +313,14 @@ footer{padding:36px 0 48px;color:var(--muted);font-size:14px}
 <section id="dashboards">
   <div class="wrap">
     <div class="sec-h"><h2>The dashboard, page by page</h2><p>A faithful recreation of my 5-page Looker Studio dashboard, with fictional clients, agents and figures to protect confidentiality.</p></div>
-    <div class="gallery" id="gallery">
+    <div class="gallery" id="gallery" data-gal="dash">
       <button type="button" data-i="0"><img src="dashboard-1.png" alt="Overview page" loading="lazy"><span>Overview</span></button>
       <button type="button" data-i="1"><img src="dashboard-2.png" alt="Support Query detailed view" loading="lazy"><span>Support Query</span></button>
       <button type="button" data-i="2"><img src="dashboard-3.png" alt="Tech Query detailed view" loading="lazy"><span>Tech Query</span></button>
       <button type="button" data-i="3"><img src="dashboard-4.png" alt="Client Query detailed view" loading="lazy"><span>Client Query</span></button>
       <button type="button" data-i="4"><img src="dashboard-5.png" alt="Agent Performance page" loading="lazy"><span>Agent Performance</span></button>
     </div>
-    <p class="gnote">Click any page to open it full size, then use the arrow keys to move between pages.</p>
+    <p class="gnote">Click any page to open it full size, then use the arrow keys to move between pages. Or <a href="Support_Performance_Dashboard.pdf" target="_blank">download all 5 pages as a PDF</a>.</p>
   </div>
 </section>
 
@@ -296,9 +328,9 @@ footer{padding:36px 0 48px;color:var(--muted);font-size:14px}
   <div class="wrap">
     <div class="project">
       <div>
-        <h3>SwiftCare: a 24×7 ambulance booking app</h3>
-        <p>My BCA project idea, rebuilt from scratch in 2026. A live city map, fare and arrival-time comparison, real-time tracking, and bike, critical care and pet ambulances, with separate customer, hospital, admin and super admin views.</p>
-        <div class="chips"><span>HTML &amp; CSS</span><span>JavaScript</span><span>SVG</span><span>GitHub Pages</span></div>
+        <h3>SwiftCare: an AI-powered ambulance platform</h3>
+        <p>My BCA project idea, rebuilt from scratch in 2026. Customers describe an emergency in plain words and AI suggests the right ambulance; operators get AI dispatch suggestions for their own fleet; SwiftCare Super Ops sees the whole platform with AI-written insights. Includes live map tracking and bike, critical care and pet ambulances.</p>
+        <div class="chips"><span>Generative AI (Gemini)</span><span>Cloudflare Workers</span><span>JavaScript</span><span>3 role-based logins</span></div>
         <div class="actions"><a class="cta" href="https://dibyanshi29.github.io/swiftcare/">Try the live demo</a><a class="cta ghost" href="https://github.com/dibyanshi29/swiftcare">See the code</a></div>
       </div>
       <svg class="map" viewBox="0 0 520 300" role="img" aria-label="Illustration of an ambulance driving along a route on a city map">
@@ -311,6 +343,8 @@ footer{padding:36px 0 48px;color:var(--muted);font-size:14px}
         <g class="amb"><circle r="13" fill="var(--card)" stroke="var(--blue)" stroke-width="3"/><path d="M-7 3v-6h8l3 3v3z" fill="var(--blue)" transform="translate(0 1)"/></g>
       </svg>
     </div>
+    <div class="gallery sgal" data-gal="swiftcare"><button type="button" data-i="0"><img src="https://dibyanshi29.github.io/swiftcare/screenshots/2-ai-triage.png" alt="SwiftCare: AI triage" loading="lazy"><span>AI triage</span></button><button type="button" data-i="1"><img src="https://dibyanshi29.github.io/swiftcare/screenshots/4-live-tracking.png" alt="SwiftCare: Live tracking" loading="lazy"><span>Live tracking</span></button><button type="button" data-i="2"><img src="https://dibyanshi29.github.io/swiftcare/screenshots/7-operator-dashboard.png" alt="SwiftCare: Operator · AI dispatch" loading="lazy"><span>Operator · AI dispatch</span></button><button type="button" data-i="3"><img src="https://dibyanshi29.github.io/swiftcare/screenshots/9-super-ops.png" alt="SwiftCare: Super Ops · AI insights" loading="lazy"><span>Super Ops · AI insights</span></button><button type="button" data-i="4"><img src="https://dibyanshi29.github.io/swiftcare/screenshots/3-compare-ambulances.png" alt="SwiftCare: Compare ambulances" loading="lazy"><span>Compare ambulances</span></button><button type="button" data-i="5"><img src="https://dibyanshi29.github.io/swiftcare/screenshots/10-super-ops-operators.png" alt="SwiftCare: Super Ops · operators" loading="lazy"><span>Super Ops · operators</span></button></div>
+    <p class="gnote">Screens from each login: customer, ambulance operator and SwiftCare Super Ops. Click to view full size.</p>
   </div>
 </section>
 
@@ -352,6 +386,20 @@ footer{padding:36px 0 48px;color:var(--muted);font-size:14px}
 
 <footer><div class="wrap">© 2026 Dibyanshi Poddar</div></footer>
 
+
+<button class="cb-btn" id="cbBtn" type="button" aria-expanded="false" aria-controls="cb"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg><span>Ask about me</span></button>
+<section class="cb" id="cb" role="dialog" aria-label="Ask about Dibyanshi">
+  <div class="cb-h"><div class="cb-av" aria-hidden="true">DP</div><div><b>Ask about Dibyanshi</b><small id="cbMode">Answers from her resume and projects</small></div><button class="cb-x" id="cbX" type="button" aria-label="Close chat">×</button></div>
+  <div class="cb-log" id="cbLog" aria-live="polite"></div>
+  <div class="cb-sug" id="cbSug">
+    <button type="button">What did she automate at GoComet?</button>
+    <button type="button">Does she know SQL and Power BI?</button>
+    <button type="button">Tell me about SwiftCare</button>
+    <button type="button">What roles is she looking for?</button>
+  </div>
+  <form class="cb-f" id="cbForm"><label class="sr" for="cbIn" style="position:absolute;left:-9999px">Your question</label><input id="cbIn" maxlength="300" autocomplete="off" placeholder="Ask a question…"><button type="submit" id="cbSend">Send</button></form>
+  <p class="cb-note">AI can make mistakes. For anything important, email Dibyanshi.</p>
+</section>
 <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Dashboard page viewer">
   <div class="vbar"><b id="vtitle"></b><div style="display:flex;gap:8px"><button class="vbtn" id="vprev" type="button">Previous</button><button class="vbtn" id="vnext" type="button">Next</button><button class="vbtn" id="vclose" type="button">Close</button></div></div>
   <div class="vimg"><img id="vimg" alt=""></div>
@@ -420,13 +468,13 @@ const so = new IntersectionObserver(es => es.forEach(e => {
 ['work','dashboards','project','experience','about'].forEach(id => so.observe(document.getElementById(id)));
 
 /* dashboard viewer */
-const pages = [...document.querySelectorAll('#gallery button')].map(b => ({src: b.querySelector('img').getAttribute('src'), title: b.querySelector('span').textContent}));
+let pages = [];
 const viewer = document.getElementById('viewer'), vimg = document.getElementById('vimg'), vtitle = document.getElementById('vtitle');
 let cur = 0, lastFocus = null;
-function show(i){ cur = (i + pages.length) % pages.length; vimg.src = pages[cur].src; vimg.alt = pages[cur].title + ' page of the dashboard'; vtitle.textContent = `${cur + 1} of ${pages.length} · ${pages[cur].title}`; viewer.querySelector('.vimg').scrollTop = 0; }
-function openV(i){ lastFocus = document.activeElement; show(i); viewer.classList.add('open'); document.body.style.overflow = 'hidden'; document.getElementById('vclose').focus(); }
+function show(i){ cur = (i + pages.length) % pages.length; vimg.src = pages[cur].src; vimg.alt = pages[cur].title; vtitle.textContent = `${cur + 1} of ${pages.length} · ${pages[cur].title}`; viewer.querySelector('.vimg').scrollTop = 0; }
+function openV(gal, i){ pages = [...gal.querySelectorAll('button')].map(b => ({src: b.querySelector('img').getAttribute('src'), title: b.querySelector('span').textContent})); lastFocus = document.activeElement; show(i); viewer.classList.add('open'); document.body.style.overflow = 'hidden'; document.getElementById('vclose').focus(); }
 function closeV(){ viewer.classList.remove('open'); document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
-document.getElementById('gallery').addEventListener('click', e => { const b = e.target.closest('button'); if (b) openV(+b.dataset.i); });
+document.querySelectorAll('[data-gal]').forEach(gal => gal.addEventListener('click', e => { const b = e.target.closest('button'); if (b) openV(gal, [...gal.querySelectorAll('button')].indexOf(b)); }));
 document.getElementById('vprev').onclick = () => show(cur - 1);
 document.getElementById('vnext').onclick = () => show(cur + 1);
 document.getElementById('vclose').onclick = closeV;
@@ -434,7 +482,58 @@ addEventListener('keydown', e => {
   if (!viewer.classList.contains('open')) return;
   if (e.key === 'Escape') closeV(); else if (e.key === 'ArrowRight') show(cur + 1); else if (e.key === 'ArrowLeft') show(cur - 1);
 });
-document.querySelectorAll('#gallery img').forEach(img => img.addEventListener('error', () => img.closest('button').remove()));
+document.querySelectorAll('[data-gal] img').forEach(img => img.addEventListener('error', () => img.closest('button').remove()));
+
+/* ===== "Ask about me" chatbot =====
+   Paste your Cloudflare Worker URL below once it's deployed. Until then, quick answers are used. */
+const CHAT_ENDPOINT = "https://ask-dibyanshi.dibyanshipoddar29.workers.dev";
+const cb = document.getElementById('cb'), cbBtn = document.getElementById('cbBtn'), cbLog = document.getElementById('cbLog'), cbIn = document.getElementById('cbIn'), cbSend = document.getElementById('cbSend');
+const chatHistory = [];
+const FAQ = [
+  [/gocomet|automat|48|pipeline|macro|rate/i, "At GoComet, Dibyanshi built an AI-powered rate upload pipeline: an Excel VBA macro cleans raw carrier rate files, a Generative AI workflow maps ports, charges and lanes, and the result is bulk-uploaded. It cut each upload cycle from about 48 hours to about 2 hours, a 96% reduction."],
+  [/sql|power ?bi|dashboard|looker|tableau|visual/i, "Yes. Dibyanshi used SQL and Power BI at Hero FinCorp to automate MIS reporting, which brought a 50%+ efficiency gain. At GoComet she built a 5-page Looker Studio dashboard with 27 calculated fields, blended data and saved filters. You can see it in the Dashboards section."],
+  [/python|databricks|code|program/i, "Dibyanshi works with Python, SQL, Excel VBA and Databricks. Her SwiftCare project is a full JavaScript web app with Generative AI features."],
+  [/swift|ambulance|project/i, "SwiftCare is Dibyanshi's AI-powered ambulance platform with three logins: customer, ambulance operator and SwiftCare Super Ops. AI suggests the right ambulance from a plain-language description, recommends vehicles to operators, and summarises the platform for Super Ops. There's a live demo in the Project section."],
+  [/\bai\b|gen(erative)? ?ai|llm|gemini|chatbot|prompt/i, "Dibyanshi uses Generative AI in real work: her GoComet pipeline uses AI to map rate data, and SwiftCare uses Gemini for triage, dispatch and insights. She's also taking IBM's Generative AI course on Coursera (LangChain, prompting, Flask)."],
+  [/pfizer|award|recogni/i, "At Pfizer (2023), Dibyanshi worked on a BPM rollout across Malaysia and Singapore, exceeded targets by 160% and received the Asia Pacific Best Employee (S1) award. She also received an FY Performance Award at Hero FinCorp."],
+  [/hero|fincorp|fintech|bank/i, "At Hero FinCorp (2024–2026), Dibyanshi automated MIS reporting with SQL and Power BI and set up KPI tracking for leadership, with a 50%+ efficiency gain and 80% better unit productivity. She also handled RBI-compliant cheque operations."],
+  [/educat|mba|bca|degree|college|universit|study/i, "Dibyanshi has an MBA in Operations & Business Analytics from BML Munjal University (2024) and a BCA from Guru Nanak Institute of Technology, Kolkata (2021)."],
+  [/role|looking|job|hire|open to|position/i, "Dibyanshi is open to MIS Analyst, Operations Analyst and Data Analyst roles. The best way to reach her is Dibyanshipoddar29@gmail.com."],
+  [/contact|email|reach|linkedin|phone/i, "You can email Dibyanshi at Dibyanshipoddar29@gmail.com or connect on LinkedIn at linkedin.com/in/dibyanshipoddar."],
+  [/experience|years|background|about|who/i, "Dibyanshi is an Operations & MIS Analyst with experience across logistics (GoComet), fintech (Hero FinCorp) and pharma (Pfizer). She specialises in automating manual processes and building dashboards with SQL, Power BI, Looker Studio, Excel VBA and Generative AI."],
+  [/skill|tool|tech/i, "Her main skills: SQL, Python, Excel VBA, Advanced Excel, Power BI, Looker Studio, Databricks, Generative AI, MIS reporting, KPI tracking and process automation."]
+];
+function faq(q){ for (const [re, a] of FAQ) if (re.test(q)) return a; return "I don't have that detail. Dibyanshi will be happy to answer directly: Dibyanshipoddar29@gmail.com."; }
+function add(text, who, src){
+  const m = document.createElement('div'); m.className = 'cb-m ' + who; m.textContent = text; cbLog.appendChild(m);
+  if (src){ const s = document.createElement('div'); s.className = 'cb-src'; s.textContent = src; cbLog.appendChild(s); }
+  cbLog.scrollTop = cbLog.scrollHeight;
+}
+async function ask(q){
+  q = q.trim(); if (!q) return;
+  document.getElementById('cbSug').hidden = true;
+  add(q, 'me'); chatHistory.push({role:'user', content:q}); cbIn.value = ''; cbSend.disabled = true;
+  const dots = document.createElement('div'); dots.className = 'cb-m bot cb-dots'; dots.innerHTML = '<i></i><i></i><i></i>'; dots.setAttribute('aria-label','Typing'); cbLog.appendChild(dots); cbLog.scrollTop = cbLog.scrollHeight;
+  let answer = null, src = 'Quick answer';
+  if (CHAT_ENDPOINT){
+    try{
+      const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), 15000);
+      const r = await fetch(CHAT_ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({messages:chatHistory.slice(-6)}), signal:ctl.signal});
+      clearTimeout(t);
+      if (r.ok){ const j = await r.json(); if (j.reply){ answer = String(j.reply).slice(0, 1200); src = 'AI answer'; } }
+    }catch(e){}
+  }
+  if (!answer){ await new Promise(r => setTimeout(r, reduce ? 0 : 500)); answer = faq(q); }
+  dots.remove(); add(answer, 'bot', src); chatHistory.push({role:'assistant', content:answer}); cbSend.disabled = false; cbIn.focus();
+}
+function openChat(){ cb.classList.add('open'); cbBtn.setAttribute('aria-expanded','true'); if (!cbLog.children.length) add("Hi! I can answer questions about Dibyanshi's experience, projects and skills. What would you like to know?", 'bot'); cbIn.focus(); }
+function closeChat(){ cb.classList.remove('open'); cbBtn.setAttribute('aria-expanded','false'); cbBtn.focus(); }
+cbBtn.addEventListener('click', () => cb.classList.contains('open') ? closeChat() : openChat());
+document.getElementById('cbX').addEventListener('click', closeChat);
+document.getElementById('cbForm').addEventListener('submit', e => { e.preventDefault(); ask(cbIn.value); });
+document.getElementById('cbSug').addEventListener('click', e => { const b = e.target.closest('button'); if (b) ask(b.textContent); });
+cb.addEventListener('keydown', e => { if (e.key === 'Escape') closeChat(); });
+document.getElementById('cbMode').textContent = CHAT_ENDPOINT ? 'AI · answers from her resume and projects' : 'Quick answers from her resume';
 </script>
 </body>
 </html>
