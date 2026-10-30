@@ -81,10 +81,11 @@ nav.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:
 .replay:hover{color:var(--ink)}
 
 /* numbers */
+.hero .wrap.numswrap{display:block}
 .nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:72px}
-.nums div{padding:26px 22px;border-left:1px solid var(--line)}
+.nums div{padding:26px 24px;min-width:0;border-left:1px solid var(--line)}
 .nums div:first-child{border-left:0}
-.nums b{display:block;font-family:"Bricolage Grotesque",Arial,sans-serif;font-size:46px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.nums b{display:block;font-family:"Bricolage Grotesque",Arial,sans-serif;font-size:clamp(34px,4vw,48px);white-space:nowrap;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
 .nums span{color:var(--muted);font-size:15px}
 @media (max-width:820px){.hero .wrap{grid-template-columns:1fr}.nums{grid-template-columns:repeat(2,1fr)}.nums div:nth-child(3){border-left:0}.nums div:nth-child(n+3){border-top:1px solid var(--line)}}
 
@@ -272,7 +273,7 @@ section.cb{padding:0}
     </div>
   </div>
 
-  <div class="wrap">
+  <div class="wrap numswrap">
     <div class="nums" id="nums">
       <div><b data-to="96" data-suf="%">0%</b><span>less time on rate uploads</span></div>
       <div><b data-to="160" data-suf="%">0%</b><span>of BPM targets at Pfizer</span></div>
@@ -349,10 +350,10 @@ section.cb{padding:0}
       </div>
 
       <div class="item">
-        <button type="button" aria-expanded="false"><span><h3>Netflix catalogue analysis</h3><span class="where">Tableau dashboard · live on Tableau Public</span></span><span class="res">6,234 titles<small>interactive dashboard</small></span><span class="plus" aria-hidden="true"></span></button>
+        <button type="button" aria-expanded="false"><span><h3>Netflix catalogue analysis</h3><span class="where">College project (2023), upgraded in 2026 · Tableau</span></span><span class="res">6,234 titles<small>interactive dashboard</small></span><span class="plus" aria-hidden="true"></span></button>
         <div class="body"><div>
           <div class="cols"><div><h4>Question</h4><p>What does Netflix's catalogue look like, where does its content come from, and how fast did it grow?</p></div>
-          <div><h4>What I built</h4><p>An interactive Tableau dashboard: click any country, genre, rating or year and the whole dashboard filters to it. I found that 77% of titles list several genres and 15% several countries, so I split them into linked tables to count them correctly.</p></div>
+          <div><h4>What I built</h4><p>I first built this as a college project in 2023, then upgraded it in 2026. It's an interactive Tableau dashboard: click any country, genre, rating or year and the whole dashboard filters to it. I found that 77% of titles list several genres and 15% several countries, so I split them into linked tables to count them correctly.</p></div>
           <div><h4>Findings</h4><p>Titles added grew from 90 in 2015 to 2,349 in 2019; India is the #2 content source; 41% of titles are for adults; International Movies is the #1 genre. <a href="https://public.tableau.com/app/profile/dibyanshi.poddar7195/viz/Netflix_17932924416770/Netflix" target="_blank" rel="noopener">Open the live dashboard</a></p></div></div>
           <div class="tags"><span class="tag">Tableau</span><span class="tag">Data modelling</span><span class="tag">Dashboard actions</span><span class="tag">Data quality</span></div>
         </div></div>
@@ -576,9 +577,9 @@ const CHAT_ENDPOINT = "https://ask-dibyanshi.dibyanshipoddar29.workers.dev";
 const cb = document.getElementById('cb'), cbBtn = document.getElementById('cbBtn'), cbLog = document.getElementById('cbLog'), cbIn = document.getElementById('cbIn'), cbSend = document.getElementById('cbSend');
 const chatHistory = [];
 const FAQ = [
-  [/tableau|netflix/i, "Dibyanshi built an interactive Netflix catalogue dashboard in Tableau: click any country, genre, rating or year to filter everything. She fixed a data issue (77% of titles had several genres) by splitting genres and countries into linked tables. Live link: https://public.tableau.com/app/profile/dibyanshi.poddar7195/viz/Netflix_17932924416770/Netflix"],
+  [/tableau|netflix/i, "Dibyanshi first built her Netflix catalogue dashboard in Tableau as a college project in 2023, and upgraded it in 2026. It's interactive: click any country, genre, rating or year to filter everything. She fixed a data issue (77% of titles had several genres) by splitting genres and countries into linked tables. Live link: https://public.tableau.com/app/profile/dibyanshi.poddar7195/viz/Netflix_17932924416770/Netflix"],
   [/stand out|unique|different from|special about|sets her apart/i, "Three things:\n• She's a builder: alongside her job she built a live AI ambulance platform (SwiftCare), this portfolio and this chatbot.\n• She applies AI to real operations, like her GoComet pipeline that maps messy carrier data into one standard.\n• Her work is recognised: Asia Pacific Best Employee (S1) at Pfizer and an FY Performance Award at Hero FinCorp."],
-  [/why (should|would|hire|her)|hire her|reasons? to hire|good fit|right fit|a fit/i, "Hello! Dibyanshi hails from the vibrant City of Joy, Kolkata. In her 3-year career, work has taken her to Mumbai, Delhi and Bengaluru.\n• She's an Operations & MIS Analyst with experience at Pfizer, Hero FinCorp and GoComet, across pharma, fintech and logistics.\n• Measurable results in every role: 48 → 2 hours at GoComet, 50%+ efficiency at Hero FinCorp, 160% of targets at Pfizer.\n• She builds the tools that improve operations: Excel VBA, SQL, Power BI, Tableau and Generative AI.\n• She learns fast, can join within 15 days and is open to relocating anywhere.\nReach her at Dibyanshipoddar29@gmail.com."],
+  [/why (should|would|hire|her)|hire her|reasons? to hire|good fit|right fit|a fit/i, "Hello! Dibyanshi hails from the vibrant City of Joy, Kolkata. In her 3-year career, work has taken her to Mumbai, Delhi and Bengaluru.\n• She's an Operations & MIS Analyst with experience at Pfizer, Hero FinCorp and GoComet, across pharma, fintech and logistics.\n• Measurable results in every role: 48 → 2 hours at GoComet, 50%+ efficiency at Hero FinCorp, 160% of targets at Pfizer.\n• She builds the tools that improve operations: Excel VBA, SQL, Power BI, Tableau and Generative AI.\n• She learns fast, can join within 15 days and is open to relocating anywhere.\n\nWant your data to work smarter, not harder? Let’s connect with Dibyanshi 👉 Dibyanshipoddar29@gmail.com"],
   [/relocat|locat|based|city|which city|move/i, "Dibyanshi is currently based in Kolkata, India, and is open to relocating anywhere."],
   [/notice|join|start|availab|when can/i, "Dibyanshi can join within 15 days."],
   [/remote|hybrid|office|work from|wfh/i, "Dibyanshi is open to remote, hybrid or office-based work."],
