@@ -135,15 +135,6 @@ nav.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:
 .vimg{flex:1;overflow:auto;display:flex;justify-content:center;padding:0 20px 24px}
 .vimg img{max-width:min(1300px,100%);height:auto;align-self:flex-start;border-radius:10px}
 
-.pbi-h{font-size:24px;font-weight:700;margin:0 0 6px}
-.pbi-p{color:var(--muted);margin:0 0 16px;max-width:75ch}
-.wip{display:inline-block;margin-left:6px;font-size:13px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--soft);color:var(--muted)}
-.pgal{grid-template-columns:1.6fr 1fr 1fr;grid-auto-rows:190px}
-.pgal button:first-child{grid-row:span 2}
-.pgal button:nth-child(4){grid-column:2 / span 2}
-.qgal{grid-template-columns:repeat(4,1fr);grid-auto-rows:170px}
-.qgal button:first-child{grid-row:auto}
-@media (max-width:820px){.pgal,.qgal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.pgal button:first-child{grid-column:span 2;grid-row:auto}.pgal button:nth-child(4){grid-column:auto}}
 /* project */
 .project{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:40px;box-shadow:var(--shadow)}
 .project h3{font-size:clamp(30px,3.6vw,44px);font-weight:800}
@@ -241,7 +232,7 @@ section.cb{padding:0}
   <div class="wrap">
     <a class="brand" href="#top">Dibyanshi Poddar</a>
     <div class="links">
-      <a href="#work">Work</a><a href="#dashboards">Dashboards</a><a href="#powerbi">Power BI</a><a href="#project">Project</a><a href="#experience">Experience</a><a href="#about">Skills</a>
+      <a href="#work">Work</a><a href="#dashboards">Dashboards</a><a href="#project">Project</a><a href="#experience">Experience</a><a href="#about">Skills</a>
     </div>
     <a class="cta" href="mailto:Dibyanshipoddar29@gmail.com">Email me</a>
   </div>
@@ -354,7 +345,7 @@ section.cb{padding:0}
         <div class="body"><div>
           <div class="cols"><div><h4>Question</h4><p>What does Netflix's catalogue look like, where does its content come from, and how fast did it grow?</p></div>
           <div><h4>What I built</h4><p>I first built this as a college project in 2023, then upgraded it in 2026. It's an interactive Tableau dashboard: click any country, genre, rating or year and the whole dashboard filters to it. I found that 77% of titles list several genres and 15% several countries, so I split them into linked tables to count them correctly.</p></div>
-          <div><h4>Findings</h4><p>Titles added grew from 90 in 2015 to 2,349 in 2019; India is the #2 content source; 41% of titles are for adults; International Movies is the #1 genre. <a href="https://public.tableau.com/app/profile/dibyanshi.poddar7195/viz/Netflix_17932924416770/Netflix" target="_blank" rel="noopener">Open the live dashboard</a></p></div></div>
+          <div><h4>Findings</h4><p>Titles added grew from 90 in 2015 to 2,349 in 2019; India is the #2 content source; 41% of titles are for adults; International Movies is the #1 genre. <a href="https://public.tableau.com/app/profile/dibyanshi.poddar7195/viz/Netflix-DashboardCreatedasProject/Netflix" target="_blank" rel="noopener">Open the live dashboard</a></p></div></div>
           <div class="tags"><span class="tag">Tableau</span><span class="tag">Data modelling</span><span class="tag">Dashboard actions</span><span class="tag">Data quality</span></div>
         </div></div>
       </div>
@@ -374,31 +365,6 @@ section.cb{padding:0}
       <button type="button" data-i="4"><img src="dashboard-5.png" alt="Agent Performance page" loading="lazy"><span>Agent Performance</span></button>
     </div>
     <p class="gnote">Click any page to open it full size, then use the arrow keys to move between pages. Or <a href="Support_Performance_Dashboard.pdf" target="_blank">download all 5 pages as a PDF</a>.</p>
-  </div>
-</section>
-
-<section id="powerbi">
-  <div class="wrap">
-    <div class="sec-h"><h2>Power BI dashboards</h2><p>Two business cases built on realistic fictional datasets. <span class="wip">Power BI build in progress</span></p></div>
-
-    <h3 class="pbi-h">Fashion marketplace · End of Season Sale</h3>
-    <p class="pbi-p">Did a 9-day sale pay off? Orders per day rose 2.6×, but 60% average discounts and higher returns meant gross profit per day fell 41%. Items discounted 70% or more lost money, and the busiest hour of the sale was midnight.</p>
-    <div class="gallery pgal" data-gal="fashion">
-      <button type="button"><img src="powerbi-fashion-overview.png" alt="Fashion sale dashboard, single-page overview" loading="lazy"><span>One-page overview</span></button>
-      <button type="button"><img src="powerbi-fashion-1.png" alt="Fashion sale dashboard: sale overview page" loading="lazy"><span>Sale overview</span></button>
-      <button type="button"><img src="powerbi-fashion-2.png" alt="Fashion sale dashboard: discounts and returns page" loading="lazy"><span>Discounts &amp; returns</span></button>
-      <button type="button"><img src="powerbi-fashion-3.png" alt="Fashion sale dashboard: customers and operations page" loading="lazy"><span>Customers &amp; operations</span></button>
-    </div>
-
-    <h3 class="pbi-h" style="margin-top:40px">Food delivery operations · Bengaluru</h3>
-    <p class="pbi-p">46,000+ orders over two years. On-time delivery drops from 81% to 55% in the monsoon, every restaurant below 70% on time is in Whitefield, Electronic City or Marathahalli (distance, not kitchen speed), and customers with 16+ orders bring 59% of revenue.</p>
-    <div class="gallery qgal" data-gal="food">
-      <button type="button"><img src="powerbi-food-1.png" alt="Food delivery dashboard: overview page" loading="lazy"><span>Overview</span></button>
-      <button type="button"><img src="powerbi-food-2.png" alt="Food delivery dashboard: delivery operations page" loading="lazy"><span>Delivery operations</span></button>
-      <button type="button"><img src="powerbi-food-3.png" alt="Food delivery dashboard: restaurants page" loading="lazy"><span>Restaurants</span></button>
-      <button type="button"><img src="powerbi-food-4.png" alt="Food delivery dashboard: customers page" loading="lazy"><span>Customers</span></button>
-    </div>
-    <p class="gnote">Click any page to view it full size, then use the arrow keys to move between pages.</p>
   </div>
 </section>
 
@@ -552,7 +518,7 @@ const links = [...document.querySelectorAll('.links a')];
 const so = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
 }), {rootMargin:'-45% 0px -50% 0px'});
-['work','dashboards','powerbi','project','experience','about'].forEach(id => so.observe(document.getElementById(id)));
+['work','dashboards','project','experience','about'].forEach(id => so.observe(document.getElementById(id)));
 
 /* dashboard viewer */
 let pages = [];
@@ -577,7 +543,7 @@ const CHAT_ENDPOINT = "https://ask-dibyanshi.dibyanshipoddar29.workers.dev";
 const cb = document.getElementById('cb'), cbBtn = document.getElementById('cbBtn'), cbLog = document.getElementById('cbLog'), cbIn = document.getElementById('cbIn'), cbSend = document.getElementById('cbSend');
 const chatHistory = [];
 const FAQ = [
-  [/tableau|netflix/i, "Dibyanshi first built her Netflix catalogue dashboard in Tableau as a college project in 2023, and upgraded it in 2026. It's interactive: click any country, genre, rating or year to filter everything. She fixed a data issue (77% of titles had several genres) by splitting genres and countries into linked tables. Live link: https://public.tableau.com/app/profile/dibyanshi.poddar7195/viz/Netflix_17932924416770/Netflix"],
+  [/tableau|netflix/i, "Dibyanshi first built her Netflix catalogue dashboard in Tableau as a college project in 2023, and upgraded it in 2026. It's interactive: click any country, genre, rating or year to filter everything. She fixed a data issue (77% of titles had several genres) by splitting genres and countries into linked tables. Live link: https://public.tableau.com/app/profile/dibyanshi.poddar7195/viz/Netflix-DashboardCreatedasProject/Netflix"],
   [/stand out|unique|different from|special about|sets her apart/i, "Three things:\n• She's a builder: alongside her job she built a live AI ambulance platform (SwiftCare), this portfolio and this chatbot.\n• She applies AI to real operations, like her GoComet pipeline that maps messy carrier data into one standard.\n• Her work is recognised: Asia Pacific Best Employee (S1) at Pfizer and an FY Performance Award at Hero FinCorp."],
   [/why (should|would|hire|her)|hire her|reasons? to hire|good fit|right fit|a fit/i, "Hello! Dibyanshi hails from the vibrant City of Joy, Kolkata. In her 3-year career, work has taken her to Mumbai, Delhi and Bengaluru.\n• She's an Operations & MIS Analyst with experience at Pfizer, Hero FinCorp and GoComet, across pharma, fintech and logistics.\n• Measurable results in every role: 48 → 2 hours at GoComet, 50%+ efficiency at Hero FinCorp, 160% of targets at Pfizer.\n• She builds the tools that improve operations: Excel VBA, SQL, Power BI, Tableau and Generative AI.\n• She learns fast, can join within 15 days and is open to relocating anywhere.\n\nWant your data to work smarter, not harder? Let’s connect with Dibyanshi 👉 Dibyanshipoddar29@gmail.com"],
   [/relocat|locat|based|city|which city|move/i, "Dibyanshi is currently based in Kolkata, India, and is open to relocating anywhere."],
