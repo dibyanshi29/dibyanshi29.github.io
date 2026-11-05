@@ -1,16 +1,9 @@
 DIBYANSHI PODDAR PORTFOLIO - how to use this folder
 
 1. Keep everything in this folder TOGETHER. index.html loads its pictures from the files next to it
-   (dashboard-1.webp ... dashboard-5.webp and the assets folder). If index.html is moved on its own,
-   the pictures will not appear.
-
+   (dashboard-1.webp ... dashboard-5.webp and the assets folder).
 2. To preview on your computer: double-click index.html.
-
 3. To publish on GitHub (github.com/dibyanshi29/dibyanshi29.github.io):
    a. Open the repository and click Add file > Upload files.
-   b. Drag in EVERYTHING inside this folder: index.html, the dashboard-*.webp files,
-      the PDF and the "assets" folder.
+   b. Drag in EVERYTHING inside this folder (not the folder itself).
    c. Click Commit changes, wait 1 to 2 minutes, then press Ctrl + Shift + R on your site.
-
-4. Optional pictures: add logo-gocomet.png, logo-herofincorp.png and logo-pfizer.png to the assets
-   folder if you want company logos in the Experience section. The page works without them.
