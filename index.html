@@ -741,6 +741,24 @@ html,body{overflow-x:clip}
       </div>
 
       <div class="item">
+        <button type="button" aria-expanded="false"><span><h3>Shortlist ATS Scanner</h3><span class="where">Personal project, 2026 · JavaScript</span></span><span class="res">0–100<small>ATS match score</small></span><span class="plus" aria-hidden="true"></span></button>
+        <div class="body"><div>
+          <div class="cs">
+            <div class="cs-meta"><span><b>Type</b> Personal project</span><span><b>When</b> 2026</span><span><b>Runs</b> In the browser, no server</span><span><b>Tools</b> HTML, CSS, JavaScript</span></div>
+            <div class="cs-grid">
+              <div class="cs-block"><h4>Context</h4><p>Many companies screen resumes with an applicant tracking system (ATS) that scores keywords before a recruiter reads anything. Most scanners that show this score are paid or need a sign-up.</p></div>
+              <div class="cs-block"><h4>The problem</h4><p>How can a job seeker check, for free and privately, how well a resume matches a job, and see exactly what to fix before applying?</p></div>
+              <div class="cs-block cs-wide"><h4>My approach</h4><ol class="cs-steps"><li>Built a skills library of about 950 skills (870 hard, 75 soft) across 14 fields, including alternate spellings and acronyms.</li><li>Designed a 100-point score in 8 parts. Keywords carry about 70%, as in real ATS tools, with rules for repeated keywords, exact wording and "nice to have" skills.</li><li>Added ATS checks for job title, degree, years of experience, section headings, contact details and numbers in bullets.</li><li>Added a keyword map that highlights the job's keywords inside the resume.</li><li>Added PDF and DOCX upload, and an ATS-friendly resume template that downloads as .docx, .pdf or .txt.</li><li>Built AI helpers for bullet rewrites and cover letters that work with any AI chat, with prompts that forbid inventing experience.</li></ol></div>
+              <div class="cs-block cs-wide cs-decision"><h4>Key decision</h4><p>No API keys and no server. The scan runs entirely in the browser, and the AI buttons create a prompt the user pastes into Claude, ChatGPT or Gemini. The tool stays free to host, nobody's resume is uploaded, and there is no secret key to leak.</p></div>
+              <div class="cs-wide"><h4 class="cs-h">Results</h4><div class="cs-results"><div><b>~950</b><span>skills matched, 870 hard and 75 soft</span></div><div><b>8</b><span>scoring parts in a transparent 100-point score</span></div><div><b>3</b><span>download formats: .docx, .pdf and .txt</span></div><div><b>0</b><span>sign-ups, servers or API keys</span></div></div></div>
+              <div class="cs-learn cs-wide"><h4>What I learned</h4><p>A score is only useful if people can trust it, so I published exactly how every point is earned. Privacy can be a design choice: keeping everything in the browser made the tool simpler, safer and free.</p></div>
+            </div>
+            <div class="cs-foot"><div class="tags"><span class="tag">JavaScript</span><span class="tag">ATS scoring</span><span class="tag">Prompt design</span><span class="tag">Privacy by design</span><span class="tag">GitHub Pages</span></div><div class="cs-links"><a class="cs-link" href="https://dibyanshi29.github.io/shortlist-ats-scanner/" target="_blank" rel="noopener">Try the live scanner ↗</a><a class="cs-link" href="https://github.com/dibyanshi29/shortlist-ats-scanner" target="_blank" rel="noopener">See the code on GitHub ↗</a></div></div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="item">
         <button type="button" aria-expanded="false"><span><h3>E-commerce SQL case study</h3><span class="where">Personal project, 2026 · SQL</span></span><span class="res">15 questions<small>27,960 orders analysed</small></span><span class="plus" aria-hidden="true"></span></button>
         <div class="body"><div>
           <div class="cs">
@@ -1084,6 +1102,7 @@ const FAQ = [
   [/power ?bi|dashboard|looker|tableau|visual/i, "Yes. Dibyanshi used SQL and Power BI at Hero FinCorp to automate MIS reporting, which brought a 50%+ efficiency gain. At GoComet she built a 5-page Looker Studio dashboard with 27 calculated fields, blended data and saved filters. You can see it in the Dashboards section."],
   [/python|forecast|predict|machine learning|\bml\b|scikit|pandas/i, "Dibyanshi built a Python demand forecast for a food delivery hub: she compared three methods on unseen data, and her linear regression model was 9.1% off on average vs 13.5% for a simple baseline. She then turned the forecast into a delivery-partner staffing plan. She rates her Python as beginner and is actively building it."],
   [/databricks|code|program/i, "Dibyanshi works with SQL, Python, Excel VBA and Databricks. Her SwiftCare project is a full JavaScript web app with Generative AI features."],
+  [/\bats\b|shortlist|scanner|resume (scan|check|match)/i, "Dibyanshi built Shortlist ATS Scanner, a free resume scanner that runs entirely in the browser. Paste a resume and a job description to get a 0-100 ATS match score, missing skills, a keyword map, stronger bullet points, an ATS-friendly resume and a tailored cover letter. It matches about 950 skills and needs no sign-up, server or API key, so nobody's resume is uploaded. Try it: https://dibyanshi29.github.io/shortlist-ats-scanner/"],
   [/swift|ambulance|project/i, "SwiftCare is Dibyanshi's AI-powered ambulance platform with three logins: customer, ambulance operator and SwiftCare Super Ops. AI suggests the right ambulance from a plain-language description, recommends vehicles to operators, and summarises the platform for Super Ops. There's a live demo in the Project section."],
   [/\bai\b|gen(erative)? ?ai|llm|gemini|chatbot|prompt|rag|agent/i, "Dibyanshi uses Generative AI in real work: her GoComet pipeline uses AI to map rate data, and SwiftCare uses Gemini for triage, dispatch and insights. She has also completed IBM's Develop Generative AI Applications: Get Started course."],
   [/podcast|catking|youtube/i, "Dibyanshi was a featured guest on CATKing's podcast, 'How to prepare for Summer Internships: MBA Placement Guide for Freshers ft. BML Students' (April 2024). It's in the Podcast section of this page, or watch it at https://youtu.be/6xD680oTyps"],
